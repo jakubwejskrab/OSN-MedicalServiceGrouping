@@ -4,7 +4,7 @@
 
 # Nastav volitene parametre
 #   Rok za ktory sa priraduju medicinske sluzby
-rok <- 2019
+rok <- 2021
 #   Ci robit zalohy pocas procesu
 sprav_zalohy_vsetky <- FALSE
 sprav_zalohu_po_5 <- TRUE
@@ -21,7 +21,6 @@ library(janitor)
 library(stringr)  #*
 library(fuzzyjoin)
 library(lubridate)  #*
-library(rstudioapi)  #*
 
 # Definicia ciest k vstupnym udajom
 #   Nazvy priecinkov
@@ -33,7 +32,7 @@ folders$vystupy <- "Vystupy"
 folders$zalohy <- "Kroky_zaloha"
 #   Pospajaj priecinky do ciest
 paths <- list()
-paths$base <- getSourceEditorContext()$path %>% str_split("/")
+paths$base <- getwd() %>% str_split("/")
 paths$base <- paste0(paths$base[[1]][1:which(paths$base[[1]] == folders$hlavny)],
                     collapse = "/")
 paths$data <- paste0(paths$base, "/", folders$data, "/", rok, "/")
