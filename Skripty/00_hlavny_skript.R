@@ -21,7 +21,7 @@ if (sprav_zalohy_vsetky) {
 }
 
 # Priprav data na urcovanie medicinskych sluzieb
-source("03_prirrav_data.R", echo = T)
+source("03_priprav_data.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
 if (sprav_zalohy_vsetky | sprav_zalohu_po_5) {
@@ -37,7 +37,7 @@ if (sprav_zalohy_vsetky) {
 }
 
 # Priprav priradenie sluzieb
-source("05_prirpav_priradenie.R", echo = T)
+source("05_priprav_priradenie.R", echo = T)
 
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
 if (sprav_zalohy_vsetky) {
