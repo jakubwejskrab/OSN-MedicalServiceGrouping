@@ -27,7 +27,8 @@ for (i in tmp_names) {
                                         by = c(t(join_col[which(join_col != "icd_any")]),
                                                "icd" = "icd_any"))) %>%
       unique()
-  }else if (c("icd") != join_col) {
+  #}else if (c("icd") != join_col) {
+  }else if (!(c("icd") %in% join_col)) {
     uzs_list[[i]] <- uzs_final %>% inner_join(data.frame(ms_list[[i]]), by = t(join_col)) %>% unique()
   } else{
     temp <- data.table(uzs_final) %>% unique()
