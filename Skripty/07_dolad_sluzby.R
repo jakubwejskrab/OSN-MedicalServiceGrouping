@@ -6,7 +6,7 @@
 # Spoj priradenia medicinskych sluzieb pre rozne podmienky
 uzs_list <- rbindlist(uzs_list, fill = T)
 uzs_list <- uzs_list %>%
-  select(nemP01, ID_HOSP_ZP, drg, vykon, icd, icd_vedlajsia,
+  select(nemP01, ID_HOSP_ZP, drg, vykon, icd, icd_vedlajsia.y,
          icd_any, `Kod.MS`, `Medicinska.sluzba`, UPV, subor, vek,
          HMOTNOST, vek_crit) %>%
   unique()
@@ -22,7 +22,7 @@ sig <- fread(file = paste0(paths$prevody, files$sig_all), skip = 14, sep = "=",
 # Aplikuj dodatocne kriteria pre novorodenecke sluzby
 #   Zisti ci hospitalizacie vykazuju tazkosti a signifikantne vykony
 uzs_list <- uzs_list %>% group_by(ID_HOSP_ZP) %>%
-  mutate(tazkosti = length(intersect(unique(c(icd, icd_vedlajsia)), taz$V1)),
+  mutate(tazkosti = length(intersect(unique(c(icd, icd_vedlajsia.y)), taz$V1)),
          sig_op = length(intersect(unique(vykon), sig$V1))) %>%
   ungroup()
 #   Aplikuj kriteria na tazkosti a signifikantne vykony
@@ -56,7 +56,7 @@ uzs_list <- uzs_list %>%
 
 # Vytvor vysledny data frame
 uzs_list_final <- uzs_list %>%
-  select(nemP01, ID_HOSP_ZP, drg, vykon, icd, icd_vedlajsia, icd_any,
+  select(nemP01, ID_HOSP_ZP, drg, vykon, icd, icd_vedlajsia.y, icd_any,
          ms_kod = `Kod.MS`, ms_name = `Medicinska.sluzba`, subor, prior, vek) %>%
   mutate(vek_skupina = case_when(vek == 0 ~ 0,
                                  vek %in% 1:6 ~ 1,
