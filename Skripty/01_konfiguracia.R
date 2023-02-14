@@ -4,7 +4,7 @@
 
 # Nastav volitene parametre
 #   Rok za ktory sa priraduju medicinske sluzby
-rok <- 2022
+rok <- 2021
 #   Ci robit zalohy pocas procesu
 sprav_zalohy_vsetky <- FALSE
 sprav_zalohu_po_5 <- TRUE
