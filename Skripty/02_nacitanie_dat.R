@@ -27,17 +27,16 @@ for (c in ins$comp) {
     # zohladnit, inak nebudu rovnake stlpce pod sebou.
     tmp_df <- tmp_df %>%
       mutate(ins_name = c)
-    tmp_drop <- vector()
+
     for (i in 1:(ncol(tmp_df) - 1)) {
       tmp_vec <- unique(tmp_df %>% select(as.numeric(i)))
       if (length(tmp_vec) == 1 & tmp_vec[1] %in% ins$comp) {
-        tmp_drop <- c(tmp_drop, -i)
+        tmp_df <- select(tmp_df, -i)
       }
     }
 
     # Vloz nacitane data do hlavneho zoznamu
-    tmp_df <- as.data.frame(tmp_df)
-    main_df[[f]] <- tmp_df[, tmp_drop]
+    main_df[[f]] <- as.data.frame(tmp_df)
     main_df[[f]] <- main_df[[f]] %>% unique()
   }
 }
