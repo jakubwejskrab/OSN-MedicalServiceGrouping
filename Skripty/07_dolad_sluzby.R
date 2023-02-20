@@ -73,6 +73,11 @@ uzs_list_final <- uzs_list %>%
   ungroup() %>%
   unique()
 
+# Exportuj neagregovane vystupy
+uzs_list_final %>%
+  write.csv2(paste0(paths$vystupy, "vystup_detail_", rok, ".csv"),
+    fileEncoding = "UTF-8")
+
 # Exportuj pocty medicinskych sluzieb po nemocniciach, sluzbach a vekoch.
 # Kazda hospitalizacia je zapocitavana raz.
 uzs_list_final %>%
