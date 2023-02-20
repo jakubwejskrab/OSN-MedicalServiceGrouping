@@ -6,7 +6,7 @@
 #   Rok za ktory sa priraduju medicinske sluzby
 rok <- 2022
 #   Ci robit zalohy pocas procesu
-sprav_zalohy_vsetky <- FALSE
+sprav_zalohy_vsetky <- TRUE
 sprav_zalohu_po_5 <- TRUE
 
 # Nacitaj potrebne kniznice.

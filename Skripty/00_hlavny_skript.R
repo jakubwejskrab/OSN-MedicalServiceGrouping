@@ -26,6 +26,10 @@ source("03_priprav_data.R", echo = T)
 # Sprav zalohu aktualneho stavu, ak to pouzivatel chce
 if (sprav_zalohy_vsetky | sprav_zalohu_po_5) {
   save.image(file = paste0(paths$zalohy, "03_pripravene_data_", rok, ".RData"))
+
+  uzs_final %>%
+    write.csv2(paste0(paths$zalohy, "03_pripravene_data_", rok, ".csv"),
+      fileEncoding = "UTF-8")
 }
 
 # Priprav definicie medicinskych sluzieb
@@ -43,6 +47,10 @@ source("05_priprav_priradenie.R", echo = T)
 if (sprav_zalohy_vsetky) {
   save.image(file = paste0(paths$zalohy, "05_pripravene_na_priradenie_", rok,
                            ".RData"))
+
+  uzs_final %>%
+    write.csv2(paste0(paths$zalohy, "05_pripravene_na_priradenie_", rok, ".csv"),
+      fileEncoding = "UTF-8")
 }
 
 # Ak je urobenie zalohy po 5tej casti povolena, odporuca sa vypnut a zapnut R,
