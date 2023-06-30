@@ -1,6 +1,11 @@
 /Vystupy/*
 /Kroky_zaloha/*
-/Data_ZP/*
+/Data_ZP/2022/24/*
+/Data_ZP/2022/25/*
+/Data_ZP/2022/27/*
+/Data_ZP/2023/24/*
+/Data_ZP/2023/25/*
+/Data_ZP/2023/27/*
 
 !/Vystupy/*.txt
 !/Kroky_zaloha/*.txt
