@@ -5,8 +5,11 @@
 # CAST C: Spoj UZS_JZS a DRG dat a zjednot ich
 ##### --------------------------------------------------------------------------
 
-# Spoj tabulky uzs a drg
+# Konvertuj ID_HP_ZP na character dtype
+# Sloupec muze mit dtype logical, pokud je vstupni csv s 0 radky
 uzs$ID_HP_ZP <- as.character(uzs$ID_HP_ZP)
+
+# Spoj tabulky uzs a drg
 uzs_final <- drg %>%
   full_join(uzs, by = "ID_HP_ZP", suffix = c(".02", ".01"))
 
